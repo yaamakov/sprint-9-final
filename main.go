@@ -68,7 +68,7 @@ func maxChunks(data []int) int {
 				endIndex = len(data)
 			}
 
-			chunkMax := data[startIndex]
+			chunkMax := maximum(data[startIndex:endIndex])
 			for j := startIndex + 1; j < endIndex; j++ {
 				if data[j] > chunkMax {
 					chunkMax = data[j]
