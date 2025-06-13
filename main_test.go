@@ -2,6 +2,8 @@ package main
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 // Test generateRandomElements function
@@ -35,10 +37,7 @@ func TestGenerateRandomElements(t *testing.T) {
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			result := generateRandomElements(tc.size)
-
-			if len(result) != tc.expectedLength {
-				t.Errorf("Ожидался срез длиной %d, получен срез длиной %d", tc.expectedLength, len(result))
-			}
+			assert.Len(t, result, tc.expectedLength)
 		})
 	}
 }
@@ -79,9 +78,7 @@ func TestMaximum(t *testing.T) {
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			result := maximum(tc.inputSlice)
-			if result != tc.expected {
-				t.Errorf("Ожидалось %d для среза %v, получено %d", tc.expected, tc.inputSlice, result)
-			}
+			assert.Equal(t, result, tc.expected)
 		})
 	}
 }
@@ -122,9 +119,7 @@ func TestMaxChunks(t *testing.T) {
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			result := maximum(tc.inputSlice)
-			if result != tc.expected {
-				t.Errorf("Ожидалось %d для среза %v, получено %d", tc.expected, tc.inputSlice, result)
-			}
+			assert.Equal(t, result, tc.expected)
 		})
 	}
 }
